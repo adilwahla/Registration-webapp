@@ -5,10 +5,6 @@
 Responsive user Registration and Login (SignIn & SignUp) Form functionality using React, NodeJS, ExpressJS and MongoDB and Bootstrap.
 
 
-![Screenshot (219)](https://github.com/AkshataGanbote/Registration_Login_Form_MERN_Stack/assets/117456092/442bbe2d-cda7-4d5c-a156-9e9cc9b3f108)
-
-![Screenshot (220)](https://github.com/AkshataGanbote/Registration_Login_Form_MERN_Stack/assets/117456092/01b04452-4e8b-4a24-b680-28c93f2c7550)
-
 
 ## ❓Requirements
 
@@ -32,7 +28,7 @@ Go to the link below for installation if you don't have installed yet.
 
 3. Run the command `npm run dev` to start live server
 
-4. Click on `http://localhost:5173/`
+4. Click on `http://localhost:3001/`
 
 - <h3>Backend
 
@@ -58,4 +54,4 @@ This project uses the following technologies:
 
 <br/>
 
-<h2> Do not forget to give a star! ⭐🤗 </h2>
+
