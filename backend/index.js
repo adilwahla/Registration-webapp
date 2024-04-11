@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(express.json());
+
 app.use(express.urlencoded({  extended: true }));
 // use dbURI for atlas cluster
 const dbURI = process.env.MONGO_URI;
@@ -22,7 +22,7 @@ const localURI=process.env.MONGO_URI_LOCAL;
 mongoose
   .connect(localURI)
   .then(() => {
-    console.log(`Connected to MongoDB: ${isProduction ? 'Atlas' : 'Local'}`);
+    console.log(`Connected to MongoDB`);
   })
   .catch((e) => {
     console.log(e);
