@@ -2,14 +2,34 @@ const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const FormDataModel = require ('./models/FormData');
+require('dotenv').config();
 
-
+const PORT = process.env.PORT || 3001; 
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({  extended: true }));
+// use dbURI for atlas cluster
+const dbURI = process.env.MONGO_URI;
+// use localURI for local host
+const localURI=process.env.MONGO_URI_LOCAL;
 
-mongoose.connect('mongodb://127.0.0.1:27017/practice_mern');
+// Determine the environment and choose the appropriate DB URI
+// const isProduction = process.env.NODE_ENV === 'production';
+// const dbURI = isProduction ? process.env.MONGO_URI : process.env.MONGO_URI_LOCAL;
 
+mongoose
+  .connect(localURI)
+  .then(() => {
+    console.log(`Connected to MongoDB: ${isProduction ? 'Atlas' : 'Local'}`);
+  })
+  .catch((e) => {
+    console.log(e);
+  });
+
+
+//mongodb+srv://adilwahla360:u6Ru7cNLzRE3bwI3@cluster0.h1gisgv.mongodb.net/
 app.post('/register', (req, res)=>{
     // To post / insert data into database
 
@@ -48,8 +68,7 @@ app.post('/login', (req, res)=>{
         }
     })
 })
-
-app.listen(3001, () => {
-    console.log("Server listining on http://127.0.0.1:3001");
-
-});
+ // Use PORT from .env or default to 3001
+ app.listen(PORT, "0.0.0.0", () => {
+    console.log(`connected at port ${PORT}`);
+  });
